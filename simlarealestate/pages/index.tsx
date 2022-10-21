@@ -1,10 +1,14 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Agents from '../components/Agents';
+import Blog from '../components/Blog';
 import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import Projects from '../components/Projects';
 import Services from '../components/Services';
+import Testimonials from '../components/Testimonials';
 
 const Home: NextPage = () => {
   return (
@@ -14,12 +18,18 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Navbar />
-
-      <main className='flex w-full flex-1 flex-col items-center justify-center px-20 text-center'>
+      <main className='flex w-full flex-1 flex-col items-center justify-center px-2 text-center'>
         <Carousel />
 
         <Services />
+
+        <Projects />
+
+        <Agents />
+
+        <Blog />
+
+        <Testimonials />
 
         <div className='mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full'>
           <a
@@ -63,8 +73,6 @@ const Home: NextPage = () => {
           </a>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

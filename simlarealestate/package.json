@@ -7,9 +7,9 @@
   },
   "dependencies": {
     "next": "latest",
+    "normalize.css": "latest",
     "react": "18.1.0",
     "react-animated-slider": "^2.0.0",
-    "normalize.css": "latest",
     "react-dom": "18.1.0"
   },
   "devDependencies": {

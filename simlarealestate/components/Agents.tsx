@@ -10,7 +10,7 @@ const Agents = () => {
         <h1 className='font-bold text-6xl py-6'>Agents</h1>
       </div>
       <div>
-        <div>
+        <div className='lg:grid grid-cols-3'>
           <AgentCard />
           <AgentCard />
           <AgentCard />

@@ -1,8 +1,7 @@
 import React from 'react';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
-import "normalize.css/normalize.css";
-
+import 'normalize.css/normalize.css';
 
 interface Props {}
 
@@ -38,12 +37,12 @@ const content = [
 
 const Carousel = () => {
   return (
-    <div>
-      <Slider className='top-40 slider-wrapper'>
+    <div className=''>
+      <Slider className='slider-wrapper'>
         {content.map((item, index) => (
           <div
             key={index}
-            className='slider content'
+            className='slider-content'
             style={{
               background: `url('${item.image}') no-repeat center center`,
             }}

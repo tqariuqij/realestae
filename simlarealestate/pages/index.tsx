@@ -6,6 +6,7 @@ import Blog from '../components/Blog';
 import Carousel from '../components/Carousel';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import OnSaleProperty from '../components/OnSaleProperty';
 import Projects from '../components/Projects';
 import Services from '../components/Services';
 import Testimonials from '../components/Testimonials';
@@ -14,7 +15,7 @@ const Home: NextPage = () => {
   return (
     <div className='flex min-h-screen flex-col items-center justify-center py-2'>
       <Head>
-        <title>Create Next App</title>
+        <title>Simla Realestate</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
@@ -24,6 +25,8 @@ const Home: NextPage = () => {
         <Services />
 
         <Projects />
+
+        <OnSaleProperty />
 
         <Agents />
 

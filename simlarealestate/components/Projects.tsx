@@ -1,23 +1,16 @@
 import React from 'react';
 import PropertyCard from './PropertyCard';
 import { rentData } from '../data/rentData';
+import { client } from '../lib/client';
 
 interface Props {
   title: string;
   price: number;
 }
 
-const Projects = ({ properties }) => {
-  console.log(properties);
+const Projects = ({ houses }) => {
+  console.log(houses);
 
-  console.log(rentData);
-
-  // const rentPayload = {
-  //    rentData.title,
-  //    rentData.price
-  // };
-
-  // console.log(rentPayload);
   return (
     <div className='container'>
       <div className='mb-6'>
@@ -27,17 +20,24 @@ const Projects = ({ properties }) => {
         {/* {properties.slice(0, 2).map((property: any) => (
           <PropertyCard rent={property} />
         ))} */}
+
+        {houses.map((house) => house.name)}
       </div>
     </div>
   );
 };
 
-export default Projects;
+export const getServerSideProps = async () => {
+  const query = '*[_type == "houses"]';
 
-export const getStaticProps = async () => {
-  const data = rentData;
+  const housesForSale = await client.fetch(query);
+
+  const query1 = '*[_type == "land"]';
+
+  const landForSale = await client.fetch(query1);
 
   return {
-    props: { properties: data },
+    props: { houses },
   };
 };
+export default Projects;

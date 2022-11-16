@@ -8,8 +8,8 @@ interface Props {
   price: number;
 }
 
-const Projects = ({ houses }) => {
-  console.log(houses);
+const Projects = (props) => {
+  console.log(props);
 
   return (
     <div className='container'>
@@ -21,7 +21,7 @@ const Projects = ({ houses }) => {
           <PropertyCard rent={property} />
         ))} */}
 
-        {houses.map((house) => house.name)}
+        {/* {houses.map((house) => house.name)} */}
       </div>
     </div>
   );
@@ -30,14 +30,24 @@ const Projects = ({ houses }) => {
 export const getServerSideProps = async () => {
   const query = '*[_type == "houses"]';
 
-  const housesForSale = await client.fetch(query);
+  const houses = await client.fetch(`*[_type == "houses"]`);
 
   const query1 = '*[_type == "land"]';
 
-  const landForSale = await client.fetch(query1);
+  const lands = await client.fetch(query1);
 
-  return {
-    props: { houses },
-  };
+  const error = 'Did not fetch data';
+
+  console.log({ houses, lands });
+
+  if (!houses) return { props: error, notFound: true };
+  else
+    return {
+      props: {
+        data: {
+          name: houses,
+        },
+      },
+    };
 };
 export default Projects;
